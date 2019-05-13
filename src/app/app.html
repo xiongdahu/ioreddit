@@ -1,0 +1,31 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>订阅列表</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-item *ngFor="let r of currSubs">
+        {{r}}
+        <button ion-button item-right small color="light" (click)="removeSub(r)">取消订阅</button>
+      </ion-item>
+    </ion-list>
+
+    <form (ngSubmit)="addSub()">
+      <ion-item>
+        <ion-input type="text" placeholder="subreddits" [(ngModel)]="newSub" name="newSub"></ion-input>
+        <button ion-button type="submit" item-right small color="light">添加订阅</button>
+      </ion-item>
+    </form>
+
+    <ion-item >
+      <button ion-button item-right small full color="light" (click)="resetSubs()">恢复默认订阅</button>
+    </ion-item>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

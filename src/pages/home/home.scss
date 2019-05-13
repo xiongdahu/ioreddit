@@ -1,0 +1,40 @@
+page-home {
+  .fakeItem {
+
+    h2,
+    h3,
+    p {
+      background-color: lightgrey;
+      opacity: 0.5;
+      height: 1em;
+      margin-top: 10px;
+    }
+
+    h2 {
+      width: 100%;
+    }
+
+    h3 {
+      width: 100%;
+    }
+
+    p {
+      width: 100%;
+    }
+  }
+
+  p {
+    font-family: 'lato' !important;
+    font-size: 16em;
+  }
+
+  .subreddit-item,
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  .src-link-right {
+    float: right;
+  }
+}
