@@ -12,7 +12,7 @@ npm install --save @ionic/storage
 4. GPS定位插件 https://ionicframework.com/docs/native/geolocation/ :
    
 ```js
-$ ionic cordova plugin add cordova-plugin-geolocation --variable GEOLOCATION_USAGE_DESCRIPTION="To locate you"
+$ ionic cordova plugin add cordova-plugin-geolocation
 $ npm install --save @ionic-native/geolocation
 ```
 

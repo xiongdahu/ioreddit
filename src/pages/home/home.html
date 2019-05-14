@@ -19,12 +19,20 @@
     </ion-card-content>
   </ion-card>
   <ion-list *ngIf="loaded">
-    <ion-item text-wrap *ngFor="let post of posts">
-      <p class="subreddit-item">[<a bind-href="'http://www.reddit.com/'+post.data.subreddit">{{post.data.subreddit}}</a>]
-        &nbsp;&nbsp;comments:{{post.data.num_comments}}
-        <a bind-href="'http://www.reddit.com'+post.data.permalink">{{post.data.title}}</a>
-        <span class="src-link-right"><a item-right bind-href="post.data.url">source link</a></span>
-      </p>
+      <ion-item text-wrap *ngFor="let post of posts">
+        <p>{{post.data.title}}</p>
+        <p>
+       <ion-badge color="light">
+         <a bind-href="'http://www.reddit.com/r/'+post.data.subreddit">{{post.data.subreddit}}</a>
+        </ion-badge>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <ion-badge color="light" >
+            <a bind-href="post.data.url">source</a>
+        </ion-badge>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <ion-badge item-right item-end>
+          <a bind-href="'http://www.reddit.com'+post.data.permalink">{{post.data.num_comments}}</a>
+        </ion-badge>
     </ion-item>
   </ion-list>
 

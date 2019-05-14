@@ -25,7 +25,8 @@ page-home {
 
   p {
     font-family: 'lato' !important;
-    font-size: 16em;
+    font-size: 18em;
+    color: black;
   }
 
   .subreddit-item,
@@ -37,4 +38,6 @@ page-home {
   .src-link-right {
     float: right;
   }
+
+
 }
