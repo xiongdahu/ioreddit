@@ -3,10 +3,13 @@ import { WeatherService } from "../../providers/weather.service";
 import { Component, OnInit } from "@angular/core";
 import { NavController } from "ionic-angular";
 import { Http } from "@angular/http";
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import "rxjs/add/operator/map";
 import "rxjs/add/observable/fromPromise";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/mergeMap";
+
+
 
 @Component({
   selector: "page-home",
@@ -18,12 +21,13 @@ export class HomePage implements OnInit {
     public navCtrl: NavController,
     public http: Http,
     private weatherService: WeatherService,
-    private redditService: RedditService
+    private redditService: RedditService,
+    private iab: InAppBrowser
   ) { }
 
   //是否加载完成,控制骨架图
   loaded: any = false;
-  fakePosts = Array(15);
+  fakePosts = Array(10);
   //新闻集合
   posts = Array();
   //天气预报字段
@@ -31,10 +35,11 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     //called after the constructor and called  after the first ngOnChanges()
-    this.getWeather();
+    // this.getWeather();
     this.posts = [];
     this.loadPosts();
   }
+
 
   //获取天气
   getWeather() {
@@ -82,11 +87,16 @@ export class HomePage implements OnInit {
   }
 
   //加载更多
-  loadMore(infiniteScroll) {
+  loadMore(infiniteScroll: any) {
     console.log("Begin async operation");
     setTimeout(() => {
       console.log("Async operation has ended");
       infiniteScroll.complete();
     }, 500);
+  }
+
+  //在app内部使用inappbrowser打开url
+  open(evt: any, url: string) {
+    this.iab.create('http://www.reddit.com/' + url, '_blank', 'location=no');
   }
 }

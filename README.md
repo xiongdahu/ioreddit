@@ -16,6 +16,16 @@ $ ionic cordova plugin add cordova-plugin-geolocation
 $ npm install --save @ionic-native/geolocation
 ```
 
+5. 添加浏览器
+```js
+cordova plugin add cordova-plugin-inappbrowser@latest --save
+npm install -- save @ionic-native/in-app-browser
+```
+6. 修改浏览器user-agent
+```js
+ionic cordova plugin add cordova-plugin-useragent
+npm install @ionic-native/user-agent
+```
 
 ## 如何在两个component共享变量
 https://angularfirebase.com/lessons/sharing-data-between-angular-components-four-methods/

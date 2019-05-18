@@ -12,27 +12,29 @@
     <ion-refresher-content pullingText="下拉刷新" refreshingText="刷新中...">
     </ion-refresher-content>
   </ion-refresher>
-
-  <ion-card *ngIf="loaded">
+  <!-- <ion-card *ngIf="loaded">
     <ion-card-content>
       {{weather}}
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
   <ion-list *ngIf="loaded">
-      <ion-item text-wrap *ngFor="let post of posts">
-        <p>{{post.data.title}}</p>
-        <p>
-       <ion-badge color="light">
-         <a bind-href="'http://www.reddit.com/r/'+post.data.subreddit">{{post.data.subreddit}}</a>
+    <ion-item text-wrap *ngFor="let post of posts">
+      <p>
+        <a href="#" (click)="open($event, post.data.permalink)">{{post.data.title}}</a>
+      </p>
+      <p>
+        <ion-badge color="light">
+          <a bind-href="'http://www.reddit.com/r/'+post.data.subreddit">{{post.data.subreddit}}</a>
         </ion-badge>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <ion-badge color="light" >
-            <a bind-href="post.data.url">source</a>
+        <ion-badge color="light">
+          <a bind-href="post.data.url">source</a>
         </ion-badge>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <ion-badge item-right item-end>
-          <a bind-href="'http://www.reddit.com'+post.data.permalink">{{post.data.num_comments}}</a>
+          {{post.data.num_comments}}
         </ion-badge>
+      </p>
     </ion-item>
   </ion-list>
 
@@ -43,10 +45,10 @@
   </ion-infinite-scroll> 
   -->
 
-  <ion-card *ngIf="!loaded" class='fakeCard'>
+  <!-- <ion-card *ngIf="!loaded" class='fakeCard'>
     <ion-card-content>
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
   <ion-list *ngIf="!loaded">
     <ion-item text-wrap *ngFor="let post of fakePosts" class='fakeItem'>
       <p></p>
