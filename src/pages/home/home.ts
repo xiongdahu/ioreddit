@@ -8,7 +8,7 @@ import "rxjs/add/operator/map";
 import "rxjs/add/observable/fromPromise";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/mergeMap";
-
+import { UserAgent } from '@ionic-native/user-agent';
 
 
 @Component({
@@ -22,7 +22,8 @@ export class HomePage implements OnInit {
     public http: Http,
     private weatherService: WeatherService,
     private redditService: RedditService,
-    private iab: InAppBrowser
+    private iab: InAppBrowser,
+    private userAgent: UserAgent
   ) { }
 
   //是否加载完成,控制骨架图
@@ -34,6 +35,9 @@ export class HomePage implements OnInit {
   weather: string;
 
   ngOnInit() {
+    this.userAgent.set('Mozilla/5.0 (Linux; Android 9.0;) Chrome/74.0.3729.157 Mobile Safari/537.36')
+      .then((res: any) => console.log(res))
+      .catch((error: any) => console.error(error));
     //called after the constructor and called  after the first ngOnChanges()
     // this.getWeather();
     this.posts = [];
@@ -97,6 +101,6 @@ export class HomePage implements OnInit {
 
   //在app内部使用inappbrowser打开url
   open(evt: any, url: string) {
-    this.iab.create('http://www.reddit.com/' + url, '_blank', 'location=no');
+    this.iab.create('http://www.reddit.com/' + url, '_system', 'location=no');
   }
 }

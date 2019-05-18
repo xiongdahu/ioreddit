@@ -17,7 +17,7 @@ import { WeatherService } from "../providers/weather.service";
 
 import { IonicStorageModule } from "@ionic/storage";
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx'
-
+import { UserAgent } from '@ionic-native/user-agent';
 @NgModule({
   declarations: [
     //本模块的components
@@ -39,7 +39,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx'
     RedditService, //在module声明的服务是单例的,也是必需的,在component声明的服务是prototype的,如果没有在component声明则使用单例的
     WeatherService,
     Geolocation,
-    InAppBrowser
+    InAppBrowser,
+    UserAgent
   ]
 })
 export class AppModule {}
